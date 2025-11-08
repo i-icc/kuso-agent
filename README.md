@@ -18,3 +18,32 @@
 
 ### 動作確認
 1. ブラウザで `http://localhost:8000`
+
+## Agent Pipeline
+
+```mermaid
+graph TD
+  user((User)) --> R["Root LlmAgent\nKuso Advice Gatekeeper"]
+  R -- safe request --> SA["kuso_advice_agent (Sequential)"]
+  SA --> PC["kuso_parallel_candidates (Parallel)"]
+  PC -->|Candidate A| CPA["kuso_candidate_pipeline_a"]
+  PC -->|Candidate B| CPB["kuso_candidate_pipeline_b"]
+
+  subgraph "Candidate A"
+    CPA --> SPA["select_proverb_agent_classic"]
+    SPA --> KCA["kuso_converter"]
+    KCA --> PRA["candidate_presenter_a"]
+  end
+
+  subgraph "Candidate B"
+    CPB --> SPB["select_proverb_agent_maverick"]
+    SPB --> KCB["kuso_converter"]
+    KCB --> PRB["candidate_presenter_b"]
+  end
+
+  PRA --> J["kuso_candidate_judge"]
+  PRB --> J
+  J --> ADV["kuso_adviser"]
+  ADV --> resp((Final Response))
+  R -- prompt injection --> emoji[(🥺)]
+```
