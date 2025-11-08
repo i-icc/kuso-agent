@@ -1,0 +1,5 @@
+name: select_kuso_proverb
+agent_class: SequentialAgent
+sub_agents:
+  - config_path: ./select_proverb_agent.yaml
+  - config_path: ./kuso_converter.yaml
