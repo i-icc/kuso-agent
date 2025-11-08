@@ -1,0 +1,8 @@
+name: kuso_candidate_pipeline_a
+agent_class: SequentialAgent
+description: |-
+  Candidate A pipeline: classic proverb selection → shared converter → formatting.
+sub_agents:
+  - config_path: ../../selectors/select_proverb_agent_classic.yaml
+  - config_path: ../../converter/kuso_converter.yaml
+  - config_path: ../../presenters/candidate_presenter_a.yaml

@@ -4,5 +4,5 @@ description: |-
   Runs the full proverb→kuso→advice pipeline in order.
 sub_agents:
   - config_path: ./kuso_parallel_candidates.yaml
-  - config_path: ./kuso_candidate_judge.yaml
-  - config_path: ./kuso_adviser.yaml
+  - config_path: ../judge/kuso_candidate_judge.yaml
+  - config_path: ../adviser/kuso_adviser.yaml

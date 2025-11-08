@@ -47,3 +47,28 @@ graph TD
   ADV --> resp((Final Response))
   R -- prompt injection --> emoji[(🥺)]
 ```
+
+## Config Layout
+
+すべてのADKコンフィグを `kuso_agent_v2/configs` 以下に再配置しました。エントリーポイントの `root_agent.yaml` はこれまで通り `kuso_agent_v2` 直下に置き、その配下で用途ごとに階層化しています。
+
+```
+kuso_agent_v2/
+  root_agent.yaml            # ゲートキーパー (エントリーポイント)
+  configs/
+    pipelines/               # シーケンシャル/並列パイプライン
+      kuso_advice_agent.yaml
+      kuso_parallel_candidates.yaml
+      candidates/
+        kuso_candidate_pipeline_a.yaml
+        kuso_candidate_pipeline_b.yaml
+    selectors/               # ことわざ選定エージェント
+    converter/               # くそ変換器
+    presenters/              # 候補フォーマッター
+    judge/                   # 候補審査官
+    adviser/                 # 最終アドバイザー
+  tools/
+    proverbs.py
+```
+
+以前 `tmp/` 以下に置かれていた重複した設定ファイルは削除してあり、単一のソースを参照するようになっています。

@@ -1,7 +1,0 @@
-name: kuso_parallel_candidates
-agent_class: ParallelAgent
-description: |-
-  Launches two selector+converter pipelines in parallel to produce diverse candidates.
-sub_agents:
-  - config_path: ./kuso_candidate_pipeline_a.yaml
-  - config_path: ./kuso_candidate_pipeline_b.yaml
