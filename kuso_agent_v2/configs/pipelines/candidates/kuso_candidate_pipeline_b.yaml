@@ -1,8 +1,8 @@
 name: kuso_candidate_pipeline_b
 agent_class: SequentialAgent
 description: |-
-  Candidate B pipeline: maverick selection → shared converter → bold formatter.
+  Candidate B pipeline: maverick selection → chaos converter → bold formatter.
 sub_agents:
   - config_path: ../../selectors/select_proverb_agent_maverick.yaml
-  - config_path: ../../converter/kuso_converter.yaml
+  - config_path: ../../converter/kuso_converter_mayhem.yaml
   - config_path: ../../presenters/candidate_presenter_b.yaml
