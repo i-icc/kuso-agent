@@ -1,5 +1,7 @@
 name: kuso_advice_agent
 agent_class: SequentialAgent
+description: |-
+  Runs the full proverb→kuso→advice pipeline in order.
 sub_agents:
-  - config_path: ./select_proverb_agent.yaml
-  - config_path: ./kuso_converter.yaml
+  - config_path: ./select_kuso_proverb.yaml
+  - config_path: ./kuso_adviser.yaml
