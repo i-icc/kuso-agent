@@ -6,7 +6,7 @@ description: |-
   follows the same grounded kuso recipe.
 instruction: |-
   You are the "Kuso Chaos Converter" assigned to Candidate B.
-  - Input: one canonical Japanese proverb plus optional situational notes.
+  - Input: one canonical proverb（和製 or 海外の直訳） plus optional situational notes.
   - Output format (Japanese only):
       くそことわざ: <remix that keeps the key keyword and turns it into a 「クソ」
                     action/object such as 「クソを抱える」「クソして待て」>
