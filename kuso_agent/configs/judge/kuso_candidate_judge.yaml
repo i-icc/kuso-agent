@@ -1,5 +1,5 @@
 name: kuso_candidate_judge
-model: gemini-2.5-flash
+model: gemini-2.5-flash-lite
 agent_class: LlmAgent
 description: |-
   Reads candidates A/B and picks one for final advising.

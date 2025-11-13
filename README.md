@@ -50,10 +50,10 @@ graph TD
 
 ## Config Layout
 
-すべてのADKコンフィグを `kuso_agent_v2/configs` 以下に再配置しました。エントリーポイントの `root_agent.yaml` はこれまで通り `kuso_agent_v2` 直下に置き、その配下で用途ごとに階層化しています。
+すべてのADKコンフィグを `kuso_agent/configs` 以下に再配置しました。エントリーポイントの `root_agent.yaml` は `kuso_agent` 直下に置き、その配下で用途ごとに階層化しています。
 
 ```
-kuso_agent_v2/
+kuso_agent/
   root_agent.yaml            # ゲートキーパー (エントリーポイント)
   configs/
     pipelines/               # シーケンシャル/並列パイプライン

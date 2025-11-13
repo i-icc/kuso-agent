@@ -1,5 +1,5 @@
 name: select_proverb_agent_maverick
-model: gemini-2.5-flash
+model: gemini-2.5-flash-lite
 agent_class: LlmAgent
 description: |-
   Experimental curator that favors less common or surprising proverbs.
@@ -13,5 +13,5 @@ instruction: |-
   - 相談テーマとのひねった接点を必ず意識し、ぴったり過ぎるものは避ける。
 sub_agents: []
 tools:
-  - name: kuso_agent_v2.tools.proverbs.get_japanese_proverb_list_tool
+  - name: kuso_agent.tools.proverbs.get_japanese_proverb_list_tool
     args: {}

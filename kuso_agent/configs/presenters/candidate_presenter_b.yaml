@@ -1,5 +1,5 @@
 name: candidate_presenter_b
-model: gemini-2.5-flash
+model: gemini-2.5-flash-lite
 agent_class: LlmAgent
 description: |-
   Formats outputs from the maverick selector + converter as Candidate B with bold tone.

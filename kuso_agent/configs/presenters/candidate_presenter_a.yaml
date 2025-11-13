@@ -1,5 +1,5 @@
 name: candidate_presenter_a
-model: gemini-2.5-flash
+model: gemini-2.5-flash-lite
 agent_class: LlmAgent
 description: |-
   Formats outputs from the classic selector + converter as Candidate A.
