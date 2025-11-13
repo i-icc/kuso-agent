@@ -88,7 +88,17 @@ def _keyword_hit(text: str, keywords: Iterable[str]) -> bool:
     return any(keyword in lowered for keyword in keywords if keyword)
 
 
-def _get_japanese_proverb_list(theme: str = "") -> dict[str, Any]:
+def _coerce_to_text(value: Any) -> str:
+    """Best-effort conversion of arbitrary tool args into plain text."""
+
+    if value is None:
+        return ""
+    if isinstance(value, str):
+        return value
+    return str(value)
+
+
+def _get_japanese_proverb_list(theme: Any = "") -> dict[str, Any]:
     """Return a curated set of Japanese proverbs relevant to a theme.
 
     Args:
@@ -101,7 +111,7 @@ def _get_japanese_proverb_list(theme: str = "") -> dict[str, Any]:
         can cite and explain them.
     """
     results = list(_PROVERBS)
-    normalized_theme = (theme or "").strip()
+    normalized_theme = _coerce_to_text(theme).strip()
     if normalized_theme:
       normalized = normalized_theme.replace('\u3000', ' ').casefold()
       tokens = tuple(token for token in normalized.split() if token)
