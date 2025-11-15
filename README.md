@@ -70,5 +70,5 @@ kuso_agent/
     judge/                   # 候補審査官
     adviser/                 # 最終アドバイザー
   tools/
-    proverbs.py             # 日本ことわざ/グローバル/四字熟語ツール
+    proverbs.py             # 日本ことわざ/四字熟語ツール
 ```

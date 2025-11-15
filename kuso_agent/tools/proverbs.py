@@ -186,135 +186,6 @@ _JAPANESE_PROVERBS: tuple[dict[str, Any], ...] = (
     },
 )
 
-_GLOBAL_PROVERBS: tuple[dict[str, Any], ...] = (
-    {
-        "proverb": "When in Rome, do as the Romans do",
-        "origin": "Italy",
-        "meaning": "Adapting to local customs prevents friction.",
-        "themes": ("culture", "travel", "team"),
-        "usage_hint": "Use when someone must respect an existing process.",
-    },
-    {
-        "proverb": "A stitch in time saves nine",
-        "origin": "England",
-        "meaning": "Fixing small issues early prevents bigger messes.",
-        "themes": ("maintenance", "planning", "quality"),
-        "usage_hint": "Encourage proactive action before things blow up.",
-    },
-    {
-        "proverb": "The squeaky wheel gets the grease",
-        "origin": "United States",
-        "meaning": "Those who speak up receive attention first.",
-        "themes": ("advocacy", "priorities", "communication"),
-        "usage_hint": "Good when nudging someone to ask for support.",
-    },
-    {
-        "proverb": "Measure twice, cut once",
-        "origin": "Carpentry proverb",
-        "meaning": "Preparation avoids costly rework.",
-        "themes": ("craftsmanship", "planning", "quality"),
-        "usage_hint": "Use for launches or irreversible decisions.",
-    },
-    {
-        "proverb": "Empty barrels make the most noise",
-        "origin": "Ireland",
-        "meaning": "Loud bragging often hides lack of substance.",
-        "themes": ("ego", "leadership", "focus"),
-        "usage_hint": "When dealing with performative teammates.",
-    },
-    {
-        "proverb": "Better an egg today than a hen tomorrow",
-        "origin": "Spain",
-        "meaning": "A small sure thing beats a big maybe.",
-        "themes": ("negotiation", "finance", "risk"),
-        "usage_hint": "Encourage cashing in guaranteed wins.",
-    },
-    {
-        "proverb": "He who chases two rabbits catches neither",
-        "origin": "Russia",
-        "meaning": "Split attention ruins both goals.",
-        "themes": ("focus", "projects", "strategy"),
-        "usage_hint": "Parallel to Japanese rabbit proverb; use for prioritization.",
-    },
-    {
-        "proverb": "No bees, no honey; no work, no money",
-        "origin": "French",
-        "meaning": "Rewards require effort.",
-        "themes": ("work", "motivation", "finance"),
-        "usage_hint": "Remind someone that grind precedes payoff.",
-    },
-    {
-        "proverb": "The best time to plant a tree was twenty years ago. The second best time is now",
-        "origin": "Chinese",
-        "meaning": "Late action still beats inaction.",
-        "themes": ("long-term", "habits", "personal growth"),
-        "usage_hint": "Use when someone regrets procrastinating.",
-    },
-    {
-        "proverb": "Trust, but verify",
-        "origin": "Russian (popularized in US)",
-        "meaning": "Believe people, yet confirm the facts.",
-        "themes": ("governance", "security", "partnerships"),
-        "usage_hint": "Great for audits or vendor oversight.",
-    },
-    {
-        "proverb": "Little by little, the bird builds its nest",
-        "origin": "Haitian",
-        "meaning": "Small consistent steps create big outcomes.",
-        "themes": ("habits", "learning", "projects"),
-        "usage_hint": "Motivate incremental work when the goal is huge.",
-    },
-    {
-        "proverb": "You can't plow a field by turning it over in your mind",
-        "origin": "Ireland",
-        "meaning": "Thinking alone changes nothing; act.",
-        "themes": ("procrastination", "action", "projects"),
-        "usage_hint": "Perfect when analysis paralysis strikes.",
-    },
-    {
-        "proverb": "Fall seven times, stand up eight",
-        "origin": "Japanese via English",
-        "meaning": "Resilience beats perfection.",
-        "themes": ("perseverance", "motivation", "sports"),
-        "usage_hint": "Globalized twin to 七転び八起き.",
-    },
-    {
-        "proverb": "Even a fish wouldn't get into trouble if it kept its mouth shut",
-        "origin": "Polish",
-        "meaning": "Sometimes silence is safer.",
-        "themes": ("gossip", "meetings", "risk"),
-        "usage_hint": "Use when over-sharing causes problems.",
-    },
-    {
-        "proverb": "Smooth seas do not make skillful sailors",
-        "origin": "African",
-        "meaning": "Challenge is required for mastery.",
-        "themes": ("growth", "training", "resilience"),
-        "usage_hint": "Help someone embrace a rough sprint or launch.",
-    },
-    {
-        "proverb": "If you want to go fast, go alone; if you want to go far, go together",
-        "origin": "African",
-        "meaning": "Teamwork extends reach even if it slows pace.",
-        "themes": ("collaboration", "leadership", "strategy"),
-        "usage_hint": "Use when debating solo vs. team effort.",
-    },
-    {
-        "proverb": "The camel cannot see its own hump",
-        "origin": "Arab",
-        "meaning": "People miss their own flaws.",
-        "themes": ("feedback", "self-awareness", "mentorship"),
-        "usage_hint": "For coaching conversations.",
-    },
-    {
-        "proverb": "You reap what you sow",
-        "origin": "Biblical",
-        "meaning": "Consequences match the effort invested.",
-        "themes": ("accountability", "karma", "habits"),
-        "usage_hint": "Classic warning that shortcuts come back around.",
-    },
-)
-
 _YOJIJUKUGO: tuple[dict[str, Any], ...] = (
     {
         "idiom": "起死回生",
@@ -539,13 +410,6 @@ def _get_japanese_proverb_list(theme: str = "") -> dict[str, Any]:
     return {"proverbs": matches, "count": len(matches)}
 
 
-def _get_global_proverb_list(theme: str = "") -> dict[str, Any]:
-    """Return a curated set of non-Japanese proverb data."""
-
-    matches = _filter_proverbs(_GLOBAL_PROVERBS, theme)
-    return {"proverbs": matches, "count": len(matches)}
-
-
 def _get_yojijukugo_list(theme: str = "") -> dict[str, Any]:
     """Return four-character idioms that roughly match a theme."""
 
@@ -560,17 +424,6 @@ def get_japanese_proverb_list_tool(args: ToolArgsConfig) -> FunctionTool:
 
     return FunctionTool(
         _get_japanese_proverb_list,
-        require_confirmation=require_confirmation,
-    )
-
-
-def get_global_proverb_list_tool(args: ToolArgsConfig) -> FunctionTool:
-    """Factory used from YAML to expose the global proverb list."""
-
-    require_confirmation = bool(getattr(args, "require_confirmation", False))
-
-    return FunctionTool(
-        _get_global_proverb_list,
         require_confirmation=require_confirmation,
     )
 
