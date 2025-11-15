@@ -1,8 +1,8 @@
 name: kuso_parallel_candidates
 agent_class: ParallelAgent
 description: |-
-  Launches two selector+converter pipelines in parallel (classic Japanese vs.
-  overseas chaos) to produce wildly different candidates.
+  Launches two selector+converter pipelines in parallel (堅実な和製ことわざ vs.
+  四字熟語を糞に汚すカオス) to produce wildly different candidates.
 sub_agents:
   - config_path: ./candidates/kuso_candidate_pipeline_a.yaml
   - config_path: ./candidates/kuso_candidate_pipeline_b.yaml

@@ -1,4 +1,4 @@
-"""Custom tools that provide fixed proverb data for Japanese and global lists."""
+"""Custom tools that provide fixed proverb + idiom data for kuso_agent."""
 
 from __future__ import annotations
 
@@ -315,6 +315,191 @@ _GLOBAL_PROVERBS: tuple[dict[str, Any], ...] = (
     },
 )
 
+_YOJIJUKUGO: tuple[dict[str, Any], ...] = (
+    {
+        "idiom": "起死回生",
+        "reading": "きしかいせい",
+        "meaning": "一度ダメになった状況を根性で立て直すこと。",
+        "themes": ("recovery", "motivation", "projects"),
+        "usage_hint": "大逆転やV字回復を狙う時に。",
+    },
+    {
+        "idiom": "四面楚歌",
+        "reading": "しめんそか",
+        "meaning": "周囲が全部敵で味方ゼロの孤立状態。",
+        "themes": ("politics", "team", "stress"),
+        "usage_hint": "孤軍奮闘している相談者向け。",
+    },
+    {
+        "idiom": "臥薪嘗胆",
+        "reading": "がしんしょうたん",
+        "meaning": "屈辱を忘れず努力してリベンジを狙うこと。",
+        "themes": ("career", "revenge", "training"),
+        "usage_hint": "悔しさを原動力にしている相手へ。",
+    },
+    {
+        "idiom": "電光石火",
+        "reading": "でんこうせっか",
+        "meaning": "電撃のように素早く動くさま。",
+        "themes": ("speed", "decisions", "ops"),
+        "usage_hint": "判断や行動を急ぎたい時に。",
+    },
+    {
+        "idiom": "暗中模索",
+        "reading": "あんちゅうもさく",
+        "meaning": "何も見えない状況で手探りを続けること。",
+        "themes": ("uncertainty", "product", "research"),
+        "usage_hint": "方向性を迷っている場面に。",
+    },
+    {
+        "idiom": "粉骨砕身",
+        "reading": "ふんこつさいしん",
+        "meaning": "骨を粉にするほど全力を尽くすこと。",
+        "themes": ("effort", "loyalty", "team"),
+        "usage_hint": "無茶な頑張りを美談にしたい時。",
+    },
+    {
+        "idiom": "朝令暮改",
+        "reading": "ちょうれいぼかい",
+        "meaning": "朝の命令が夕方には変わるほど方針がぐらつくさま。",
+        "themes": ("management", "chaos", "planning"),
+        "usage_hint": "上層部の迷走をいじる時に。",
+    },
+    {
+        "idiom": "自業自得",
+        "reading": "じごうじとく",
+        "meaning": "自分の行いの結果を自分が受けること。",
+        "themes": ("accountability", "karma", "discipline"),
+        "usage_hint": "自爆した人へ辛口コメントする時。",
+    },
+    {
+        "idiom": "有言実行",
+        "reading": "ゆうげんじっこう",
+        "meaning": "口にしたことをきっちり実行するさま。",
+        "themes": ("integrity", "leadership", "habits"),
+        "usage_hint": "やると言った人を追い込むとき。",
+    },
+    {
+        "idiom": "一石二鳥",
+        "reading": "いっせきにちょう",
+        "meaning": "一つの行動で二つの成果を得ること。",
+        "themes": ("efficiency", "strategy", "tradeoff"),
+        "usage_hint": "一挙両得を狙う相談に。",
+    },
+    {
+        "idiom": "右往左往",
+        "reading": "うおうさおう",
+        "meaning": "混乱して行ったり来たりするさま。",
+        "themes": ("panic", "ops", "communication"),
+        "usage_hint": "現場がバタついている話題に。",
+    },
+    {
+        "idiom": "単刀直入",
+        "reading": "たんとうちょくにゅう",
+        "meaning": "遠回しにせず核心をズバッと言うこと。",
+        "themes": ("communication", "feedback", "leadership"),
+        "usage_hint": "はっきり物を言いたい人向け。",
+    },
+    {
+        "idiom": "泰然自若",
+        "reading": "たいぜんじじゃく",
+        "meaning": "大物のように落ち着き払っているさま。",
+        "themes": ("mindset", "stress", "presence"),
+        "usage_hint": "慌てない姿勢をすすめる時。",
+    },
+    {
+        "idiom": "以心伝心",
+        "reading": "いしんでんしん",
+        "meaning": "言葉がなくても心が伝わること。",
+        "themes": ("team", "relationships", "collaboration"),
+        "usage_hint": "空気で察しろ案件に。",
+    },
+    {
+        "idiom": "適材適所",
+        "reading": "てきざいてきしょ",
+        "meaning": "才能に合わせて役割を割り振ること。",
+        "themes": ("management", "hiring", "team"),
+        "usage_hint": "人員配置の話で使いやすい。",
+    },
+    {
+        "idiom": "公私混同",
+        "reading": "こうしこんどう",
+        "meaning": "公的な事と私事を混ぜてしまうこと。",
+        "themes": ("ethics", "leadership", "governance"),
+        "usage_hint": "利害がぐちゃぐちゃな人向け。",
+    },
+    {
+        "idiom": "自由奔放",
+        "reading": "じゆうほんぽう",
+        "meaning": "好き勝手に振る舞うさま。",
+        "themes": ("creativity", "culture", "personality"),
+        "usage_hint": "縛られたくない人をヨイショする時。",
+    },
+    {
+        "idiom": "不眠不休",
+        "reading": "ふみんふきゅう",
+        "meaning": "眠らず休まず働き続けること。",
+        "themes": ("burnout", "dedication", "ops"),
+        "usage_hint": "社畜ノリを自虐するのに便利。",
+    },
+    {
+        "idiom": "面従腹背",
+        "reading": "めんじゅうふくはい",
+        "meaning": "表面上は従いながら内心では逆らうこと。",
+        "themes": ("politics", "compliance", "trust"),
+        "usage_hint": "上司に従うふりをしている状況に。",
+    },
+    {
+        "idiom": "傍若無人",
+        "reading": "ぼうじゃくぶじん",
+        "meaning": "周りの迷惑を無視してやりたい放題するさま。",
+        "themes": ("ego", "leadership", "conflict"),
+        "usage_hint": "暴走気味の人をいじる時。",
+    },
+    {
+        "idiom": "付和雷同",
+        "reading": "ふわらいどう",
+        "meaning": "自分の意見を持たず周囲に合わせること。",
+        "themes": ("consensus", "politics", "team"),
+        "usage_hint": "流されやすいメンバーに皮肉を言う時。",
+    },
+    {
+        "idiom": "異口同音",
+        "reading": "いくどうおん",
+        "meaning": "みんなが同じことを口にすること。",
+        "themes": ("alignment", "team", "culture"),
+        "usage_hint": "全員一致ムードを強調する話題に。",
+    },
+    {
+        "idiom": "千載一遇",
+        "reading": "せんざいいちぐう",
+        "meaning": "千年に一度レベルの貴重なチャンス。",
+        "themes": ("opportunity", "timing", "risk"),
+        "usage_hint": "絶好の機会を逃したくない時。",
+    },
+    {
+        "idiom": "心機一転",
+        "reading": "しんきいってん",
+        "meaning": "気分を新たにして仕切り直すこと。",
+        "themes": ("reset", "career", "habits"),
+        "usage_hint": "再スタートしたい場面に。",
+    },
+    {
+        "idiom": "老若男女",
+        "reading": "ろうにゃくなんにょ",
+        "meaning": "老いも若きも男女も。あらゆる人。",
+        "themes": ("audience", "community", "diversity"),
+        "usage_hint": "全方位巻き込み案件で便利。",
+    },
+    {
+        "idiom": "内憂外患",
+        "reading": "ないゆうがいかん",
+        "meaning": "内側にも外側にも問題を抱えること。",
+        "themes": ("strategy", "risk", "politics"),
+        "usage_hint": "課題だらけの状態を嘆く時。",
+    },
+)
+
 
 def _keyword_hit(text: str, keywords: Iterable[str]) -> bool:
     lowered = text.casefold()
@@ -334,6 +519,7 @@ def _filter_proverbs(dataset: Sequence[dict[str, Any]], theme: str) -> list[dict
     for proverb in results:
         haystacks = (
             proverb.get("proverb", ""),
+            proverb.get("idiom", ""),
             proverb.get("reading", ""),
             proverb.get("meaning", ""),
             " ".join(proverb.get("themes", ()) or ()),
@@ -360,6 +546,13 @@ def _get_global_proverb_list(theme: str = "") -> dict[str, Any]:
     return {"proverbs": matches, "count": len(matches)}
 
 
+def _get_yojijukugo_list(theme: str = "") -> dict[str, Any]:
+    """Return four-character idioms that roughly match a theme."""
+
+    matches = _filter_proverbs(_YOJIJUKUGO, theme)
+    return {"idioms": matches, "count": len(matches)}
+
+
 def get_japanese_proverb_list_tool(args: ToolArgsConfig) -> FunctionTool:
     """Factory used from YAML to expose the Japanese proverb list."""
 
@@ -378,5 +571,16 @@ def get_global_proverb_list_tool(args: ToolArgsConfig) -> FunctionTool:
 
     return FunctionTool(
         _get_global_proverb_list,
+        require_confirmation=require_confirmation,
+    )
+
+
+def get_yojijukugo_list_tool(args: ToolArgsConfig) -> FunctionTool:
+    """Factory used from YAML to expose the 四字熟語 list."""
+
+    require_confirmation = bool(getattr(args, "require_confirmation", False))
+
+    return FunctionTool(
+        _get_yojijukugo_list,
         require_confirmation=require_confirmation,
     )

@@ -36,7 +36,7 @@ graph TD
   end
 
   subgraph "Candidate B"
-    CPB --> SPB["select_overseas_proverb_agent"]
+    CPB --> SPB["select_yojijukugo_agent"]
     SPB --> KCB["kuso_converter_mayhem"]
     KCB --> PRB["candidate_presenter_b"]
   end
@@ -48,7 +48,7 @@ graph TD
 ```
 
 - Candidate A uses `select_proverb_agent_classic` + `get_japanese_proverb_list_tool` for 堅実な和製ことわざ。
-- Candidate B uses `select_overseas_proverb_agent` + `get_global_proverb_list_tool` to inject 海外ことわざカオス。
+- Candidate B uses `select_yojijukugo_agent` + `get_yojijukugo_list_tool` to vandalize 四字熟語 with 糞ハック。
 
 ## Config Layout
 
@@ -70,5 +70,5 @@ kuso_agent/
     judge/                   # 候補審査官
     adviser/                 # 最終アドバイザー
   tools/
-    proverbs.py             # 日本/海外ことわざツール
+    proverbs.py             # 日本ことわざ/グローバル/四字熟語ツール
 ```
