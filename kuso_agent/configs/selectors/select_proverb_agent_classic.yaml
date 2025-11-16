@@ -1,5 +1,5 @@
 name: select_proverb_agent_classic
-model: gemini-2.5-flash
+model: gemini-2.5-flash-lite
 agent_class: LlmAgent
 description: |-
   Conservative proverb curator that prioritizes well-known sayings with moral weight.
@@ -13,5 +13,5 @@ instruction: |-
   - 相談の文脈に合わせた選定理由は心の中で保持し、文章には含めない。
 sub_agents: []
 tools:
-  - name: kuso_agent_v2.tools.proverbs.get_japanese_proverb_list_tool
+  - name: kuso_agent.tools.proverbs.get_japanese_proverb_list_tool
     args: {}

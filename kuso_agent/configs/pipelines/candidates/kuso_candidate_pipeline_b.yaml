@@ -1,8 +1,8 @@
 name: kuso_candidate_pipeline_b
 agent_class: SequentialAgent
 description: |-
-  Candidate B pipeline: maverick selection → chaos converter → bold formatter.
+  Candidate B pipeline: 四字熟語選定 → 糞漢字チェンジャー → ドSフォーマッター。
 sub_agents:
-  - config_path: ../../selectors/select_proverb_agent_maverick.yaml
+  - config_path: ../../selectors/select_yojijukugo_agent.yaml
   - config_path: ../../converter/kuso_converter_mayhem.yaml
   - config_path: ../../presenters/candidate_presenter_b.yaml

@@ -9,7 +9,7 @@
 
 1. `docker compose up -d`
 
-`.env` はコンテナに自動で渡されます (ポートは固定で 8000 を使用)。ソースは `./kuso-agent` -> `/app/kuso-agent` にマウントされるため、ホストでの編集が即コンテナに反映されます。
+`.env` はコンテナに自動で渡されます (ポートは固定で 8000 を使用)。ビルド済みイメージ内で実行するため、コードを編集する場合は再ビルドしてください。
 
 ### ローカルセットアップ (uv)
 
@@ -24,7 +24,7 @@
 ```mermaid
 graph TD
   user((User)) --> R["Root LlmAgent\nKuso Advice Gatekeeper"]
-  R -- safe request --> SA["kuso_advice_agent (Sequential)"]
+  R --> SA["kuso_advice_agent (Sequential)"]
   SA --> PC["kuso_parallel_candidates (Parallel)"]
   PC -->|Candidate A| CPA["kuso_candidate_pipeline_a"]
   PC -->|Candidate B| CPB["kuso_candidate_pipeline_b"]
@@ -36,8 +36,8 @@ graph TD
   end
 
   subgraph "Candidate B"
-    CPB --> SPB["select_proverb_agent_maverick"]
-    SPB --> KCB["kuso_converter"]
+    CPB --> SPB["select_yojijukugo_agent"]
+    SPB --> KCB["kuso_converter_mayhem"]
     KCB --> PRB["candidate_presenter_b"]
   end
 
@@ -45,15 +45,17 @@ graph TD
   PRB --> J
   J --> ADV["kuso_adviser"]
   ADV --> resp((Final Response))
-  R -- prompt injection --> emoji[(🥺)]
 ```
+
+- Candidate A uses `select_proverb_agent_classic` + `get_japanese_proverb_list_tool` for 堅実な和製ことわざ。
+- Candidate B uses `select_yojijukugo_agent` + `get_yojijukugo_list_tool` to vandalize 四字熟語 with 糞ハック。
 
 ## Config Layout
 
-すべてのADKコンフィグを `kuso_agent_v2/configs` 以下に再配置しました。エントリーポイントの `root_agent.yaml` はこれまで通り `kuso_agent_v2` 直下に置き、その配下で用途ごとに階層化しています。
+すべてのADKコンフィグを `kuso_agent/configs` 以下に再配置しました。エントリーポイントの `root_agent.yaml` は `kuso_agent` 直下に置き、その配下で用途ごとに階層化しています。
 
 ```
-kuso_agent_v2/
+kuso_agent/
   root_agent.yaml            # ゲートキーパー (エントリーポイント)
   configs/
     pipelines/               # シーケンシャル/並列パイプライン
@@ -68,5 +70,5 @@ kuso_agent_v2/
     judge/                   # 候補審査官
     adviser/                 # 最終アドバイザー
   tools/
-    proverbs.py
+    proverbs.py             # 日本ことわざ/四字熟語ツール
 ```
