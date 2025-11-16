@@ -403,14 +403,14 @@ def _filter_proverbs(dataset: Sequence[dict[str, Any]], theme: str) -> list[dict
     return filtered or results
 
 
-def _get_japanese_proverb_list(theme: str = "") -> dict[str, Any]:
+def get_japanese_proverb_list(theme: str = "") -> dict[str, Any]:
     """Return a curated set of Japanese proverbs relevant to a theme."""
 
     matches = _filter_proverbs(_JAPANESE_PROVERBS, theme)
     return {"proverbs": matches, "count": len(matches)}
 
 
-def _get_yojijukugo_list(theme: str = "") -> dict[str, Any]:
+def get_yojijukugo_list(theme: str = "") -> dict[str, Any]:
     """Return four-character idioms that roughly match a theme."""
 
     matches = _filter_proverbs(_YOJIJUKUGO, theme)
@@ -423,7 +423,7 @@ def get_japanese_proverb_list_tool(args: ToolArgsConfig) -> FunctionTool:
     require_confirmation = bool(getattr(args, "require_confirmation", False))
 
     return FunctionTool(
-        _get_japanese_proverb_list,
+        get_japanese_proverb_list,
         require_confirmation=require_confirmation,
     )
 
@@ -434,6 +434,6 @@ def get_yojijukugo_list_tool(args: ToolArgsConfig) -> FunctionTool:
     require_confirmation = bool(getattr(args, "require_confirmation", False))
 
     return FunctionTool(
-        _get_yojijukugo_list,
+        get_yojijukugo_list,
         require_confirmation=require_confirmation,
     )

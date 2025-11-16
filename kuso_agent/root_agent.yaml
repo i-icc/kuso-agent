@@ -1,5 +1,5 @@
 name: kuso_agent
-model: gemini-2.5-flash-lite
+model: gemini-2.5-flash
 agent_class: LlmAgent
 description: |-
   You are the orchestration layer for the Kuso Advice experience: a faux earnest
